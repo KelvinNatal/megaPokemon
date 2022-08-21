@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Results } from '../../types/results';
 import CardPokemon from '../../components/CardPokemon';
-import { data } from '../../types/data';
 
 
 const Principal = () => {

@@ -22,7 +22,6 @@ type Props = {
 const CardPokemon = ({ pokemon, name }: Props) => {
   const [modalShow, setModalShow] = useState(false);
   const [poke, setPoke] = useState<data>();
-  const [poke2, setPoke2] = useState([]);
 
   function MyVerticallyCenteredModal(
     props: JSX.IntrinsicAttributes &
@@ -63,9 +62,8 @@ const CardPokemon = ({ pokemon, name }: Props) => {
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`).then((response) => {
       setPoke(response.data);
-      setPoke2(response.data);
     });
-  }, []);
+  }, [name]);
 
   return (
     <>
@@ -75,6 +73,7 @@ const CardPokemon = ({ pokemon, name }: Props) => {
           <img
             src={poke?.sprites.front_default}
             className="card-img-top img-fluid"
+            alt="..."
           />
           <div className="card-body">
             <h5 className=" tituloPrincipal card-title">{pokemon.name}</h5>
