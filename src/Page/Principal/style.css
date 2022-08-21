@@ -1,0 +1,19 @@
+.searchPoke {
+    width: 10;
+}
+
+.conteudo {
+    align-items: center;
+    justify-content: center;
+}
+
+.searchDiv {
+    text-align: center;
+}
+
+.searchBar {
+    width: 100%;
+    height: 35px;
+    border-radius: 9px;
+    margin-top: 10px;
+}
