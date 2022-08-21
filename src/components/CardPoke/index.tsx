@@ -14,7 +14,7 @@ const CardPoke = ({ name }: Props) => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`).then((response) => {
         setPoke(response.data);
     });
-  }, []);
+  }, [name]);
 
   return (
     <>
@@ -23,6 +23,7 @@ const CardPoke = ({ name }: Props) => {
           <img
             src={poke?.sprites.front_shiny}
             className="pokeImg card-img-top img-fluid"
+            alt="..."
           />
           <div className="card-body">
             <h5 className="card-title">Nome: {poke?.name}</h5>
