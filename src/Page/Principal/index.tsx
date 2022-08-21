@@ -4,7 +4,6 @@ import axios from 'axios';
 import { Results } from '../../types/results';
 import CardPokemon from '../../components/CardPokemon';
 
-
 const Principal = () => {
 
     const [pokemon, setPokemons] = useState<Results[]>([]);

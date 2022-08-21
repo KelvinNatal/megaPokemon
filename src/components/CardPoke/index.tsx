@@ -27,7 +27,7 @@ const CardPoke = ({ name }: Props) => {
           />
           <div className="card-body">
             <h5 className="card-title">Nome: {poke?.name}</h5>
-            <p className="card-card-text">Peso:{poke?.height}</p>
+            <p className="card-card-text">Peso: {poke?.height}</p>
           </div>
         </div>
       </div>
