@@ -25,7 +25,7 @@ const Principal = () => {
         window.addEventListener('scroll', (() => {
           if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
             const endpoint = "https://pokeapi.co/api/v2/pokemon"
-            axios.get(`${endpoint}?limit=${page.current += 10}&offset=0`)
+            axios.get(`${endpoint}?limit=${page.current += 12}&offset=0`)
             .then(response =>{
                 setPokemons(response.data.results)
             }) 
@@ -41,8 +41,7 @@ const Principal = () => {
         return Object.keys(item).some(key=>
             item[key].toString().toLowerCase().includes(filter.toString().toLowerCase())
           )
-      });    
-      
+      });          
       
     return(
         <>
