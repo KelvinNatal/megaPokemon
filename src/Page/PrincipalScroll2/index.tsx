@@ -44,10 +44,8 @@ const Principalscroll2 = () => {
         <>
             <section className="py-4 container">
             <div className="conteudo row">
-
               <div className='searchDiv col-12 mb-5 d-flex'>
                   <div className='divbotao'>
-                  <Link to="/botaocarregar"><button className='buttonPage'>BPage</button></Link>
                   </div>
                     <div className='mb-3 col-4 mx-auto'>
                         <h1>Search</h1>

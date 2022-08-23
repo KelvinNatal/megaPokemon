@@ -61,12 +61,8 @@ const Principal = () => {
                             value={filter}
                             onChange={searchText.bind(this)}
                         />
-
-                  </div>
-                  <div className='divbotao'>
-                    <Link to="/"><button className='buttonPage'>InfPage</button></Link>
-                  </div>
-                    
+                  </div>  
+                  <div className='divbotao'></div>                  
                 </div>
                 {dataSearch.map((item, index)=>{  
                     return(
