@@ -5,7 +5,7 @@ import { Results } from '../../types/results';
 import CardPokemon from '../../components/CardPokemon';
 import { Link } from 'react-router-dom';
 
-const Principal = () => {
+const Principalscroll2 = () => {
 
     const [pokemon, setPokemons] = useState<Results[]>([]);
 
@@ -18,20 +18,16 @@ const Principal = () => {
         .then(response =>{
             setPokemons(response.data.results)
         }) 
-      }, []);  
-      
-      useEffect(() => {      
-        /// Infinity Scroll Implementado  
-        window.addEventListener('scroll', (() => {
-          if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
-            const endpoint = "https://pokeapi.co/api/v2/pokemon"
-            axios.get(`${endpoint}?limit=${page.current += 10}&offset=0`)
+      }, []);
+
+      const carregarMais = () => {
+        const endpoint = "https://pokeapi.co/api/v2/pokemon"
+            axios.get(`${endpoint}?limit=${page.current += 12}&offset=0`)
             .then(response =>{
                 setPokemons(response.data.results)
             }) 
-          }
-        }))
-      }, []); 
+      }
+    
 
       const searchText = (event: React.ChangeEvent<HTMLInputElement>) => {
         setFilter(event.target.value);
@@ -49,7 +45,7 @@ const Principal = () => {
             <section className="py-4 container">
             <div className="conteudo row">
 
-            <div className='searchDiv col-12 mb-5 d-flex'>
+              <div className='searchDiv col-12 mb-5 d-flex'>
                   <div className='divbotao'>
                   <Link to="/botaocarregar"><button className='buttonPage'>BPage</button></Link>
                   </div>
@@ -75,6 +71,7 @@ const Principal = () => {
                       </div>
                     )                
                 })}
+                <button className="buttonCarregar"onClick={carregarMais}>Veja Mais</button>
             </div>           
         </section>
         
@@ -84,4 +81,4 @@ const Principal = () => {
     
 }
 
-export default Principal;
+export default Principalscroll2;

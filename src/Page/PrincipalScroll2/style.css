@@ -22,27 +22,9 @@
     padding: 5px;
     font-size: medium;
     cursor: pointer;
-    width: 30%;
-    border-radius: 20px;
-    border: none;
-    background: rgb(255, 57, 57);
-    color: white;
-}
-
-.buttonPage{
-    padding: 5px;
-    font-size: medium;
-    cursor: pointer;
-    width: 70%;
-    height: 100%;
-    border-radius: 20px;
-    border: none;
-    background: rgb(255, 57, 57);
-    color: white;
-}
-
-.divbotao{
     width: 20%;
-    height: 40px;
-    margin-top: 62px
+    border-radius: 20px;
+    border: none;
+    background: rgb(255, 57, 57);
+    color: white;
 }
