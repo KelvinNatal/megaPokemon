@@ -1,5 +1,5 @@
 import './style.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Results } from '../../types/results';
 import CardPokemon from '../../components/CardPokemon';
@@ -9,11 +9,11 @@ const Principal = () => {
     const [pokemon, setPokemons] = useState<Results[]>([]);
 
     const [filter, setFilter] = useState('');
-    var page = 20;
-    
+    const page = useRef(20);
+
       useEffect(() => {        
         const endpoint = "https://pokeapi.co/api/v2/pokemon"
-        axios.get(`${endpoint}?limit=${page}&offset=0`)
+        axios.get(`${endpoint}?limit=${page.current}&offset=0`)
         .then(response =>{
             setPokemons(response.data.results)
         }) 
@@ -23,7 +23,7 @@ const Principal = () => {
         window.addEventListener('scroll', (() => {
           if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
             const endpoint = "https://pokeapi.co/api/v2/pokemon"
-            axios.get(`${endpoint}?limit=${page += 10}&offset=0`)
+            axios.get(`${endpoint}?limit=${page.current += 10}&offset=0`)
             .then(response =>{
                 setPokemons(response.data.results)
             }) 
