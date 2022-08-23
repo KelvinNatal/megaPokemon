@@ -9,13 +9,28 @@ const Principal = () => {
     const [pokemon, setPokemons] = useState<Results[]>([]);
 
     const [filter, setFilter] = useState('');
-
-      useEffect(() => {
-        axios.get("https://pokeapi.co/api/v2/pokemon")
+    var page = 20;
+    
+      useEffect(() => {        
+        const endpoint = "https://pokeapi.co/api/v2/pokemon"
+        axios.get(`${endpoint}?limit=${page}&offset=0`)
         .then(response =>{
             setPokemons(response.data.results)
         }) 
-      }, []);   
+      }, []);  
+      
+      useEffect(() => {        
+        window.addEventListener('scroll', (() => {
+          if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
+            const endpoint = "https://pokeapi.co/api/v2/pokemon"
+            axios.get(`${endpoint}?limit=${page += 10}&offset=0`)
+            .then(response =>{
+                setPokemons(response.data.results)
+            }) 
+          }
+        }))
+      }, []); 
+    
 
       const searchText = (event: React.ChangeEvent<HTMLInputElement>) => {
         setFilter(event.target.value);
@@ -26,7 +41,11 @@ const Principal = () => {
             item[key].toString().toLowerCase().includes(filter.toString().toLowerCase())
           )
       });
+
+
+     
   
+      
     return(
         <>
             <section className="py-4 container">
